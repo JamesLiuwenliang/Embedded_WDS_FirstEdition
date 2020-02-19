@@ -1,0 +1,16 @@
+/*疑问点*/
+void copy2sdram(volatile unsigned int *src ,volatile unsigned int *dest,unsigned int len)
+{
+
+	unsigned int i=0;
+	
+	while(i<len)
+	{
+		*dest++ = *src++;	
+		/*这个地方我想不明白,Nor Flash是16bit,
+		 *这个拷贝是从stepingstone还是从Nor上面,
+		 *如果是从Nor,为什么是加4?
+		 */
+		i+=4; 
+	}
+}
